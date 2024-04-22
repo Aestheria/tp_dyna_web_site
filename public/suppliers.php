@@ -28,22 +28,22 @@ $requete = 'SELECT fournisseur.nom AS fournisseur_nom
             GROUP BY fournisseur.nom
             ORDER BY fournisseur.code';
 ?>
-    <table class="table table-striped display" style="width:100%" id="suppliers">
+    <table class="table table-striped display table-hover" style="width:100%" id="suppliers">
         <thead>
-            <tr class="clickable-row">
+            <tr>
                 <th>Nom</th>
                 <th>Civilité</th>
                 <th>Contact</th>
                 <th>Code postal</th>
                 <th>Ville</th>
-                <th>Code</th>
+                <th>Code fournisseur</th>
             </tr>
         </thead>
         <tbody>
 <?php
 try {
     foreach($bdd->query($requete) as $ligne) {
-        echo '<tr>';
+        echo '<tr class="clickable-row" data-href="fournisseur.php?id='.$ligne['fournisseur_code'].'">';
         echo '<td>' . $ligne['fournisseur_nom'] . '</td>';
         echo '<td>' . $ligne['civilite_libelle'] . '</td>';
         echo '<td>' . $ligne['fournisseur_contact'] . '</td>';
@@ -67,6 +67,13 @@ try {
         <script>
             $(document).ready(function () {
                 $('#suppliers').DataTable();
+            });
+        </script>
+        <script>
+            $(document).ready(function($) {
+                $(".clickable-row").click(function() {
+                    window.location = $(this).data("href");
+                });
             });
         </script>
     </body>

@@ -33,10 +33,11 @@ $requete = 'SELECT nom
 <?php
 try {
     foreach($bdd->query($requete) as $ligne) {
-        echo '<tr>';
+        echo '<tr class="clickable-row" data-href="villes.php?id='.$ligne['fournisseur_code'].'">';
         echo '<td>' . $ligne['nom'] . '</td>';
         echo '<td>' . $ligne['codepostal'] . '</td>';
         echo '<td>' . $ligne['pays'] . '</td>';
+        echo '<td>' . $ligne['code'] . '</td>';
         echo "</tr>\n";
     }
 } catch (PDOException $e) {
@@ -54,6 +55,13 @@ try {
         <script>
             $(document).ready(function () {
                 $('#villes').DataTable();
+            });
+        </script>
+        <script>
+            $(document).ready(function($) {
+                $(".clickable-row").click(function() {
+                    window.location = $(this).data("href");
+                });
             });
         </script>
     </body>
