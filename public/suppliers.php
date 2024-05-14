@@ -36,7 +36,7 @@ $requete = 'SELECT fournisseur.nom AS fournisseur_nom
                 <th>Contact</th>
                 <th>Code postal</th>
                 <th>Ville</th>
-                <th>Code fournisseur</th>
+                <!-- <th>Code fournisseur</th> -->
             </tr>
         </thead>
         <tbody>
@@ -49,7 +49,7 @@ try {
         echo '<td>' . $ligne['fournisseur_contact'] . '</td>';
         echo '<td>' . $ligne['ville_codepostal'] . '</td>';
         echo '<td>' . $ligne['ville_nom'] . '</td>';
-        echo '<td>' . $ligne['fournisseur_code'] . '</td>';
+        // echo '<td>' . $ligne['fournisseur_code'] . '</td>';
         echo "</tr>\n";
     }
 } catch (PDOException $e) {
