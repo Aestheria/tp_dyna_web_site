@@ -15,7 +15,7 @@ include("../include/connexion.php");
 /**
  * Page qui affiche la liste de tous les fournisseurs
  */
-
+// test
 $requete = 'SELECT fournisseur.nom AS fournisseur_nom
             , civilite.libelle AS civilite_libelle
             , fournisseur.contact AS fournisseur_contact
