@@ -22,7 +22,7 @@ $requete = 'SELECT nom
             , code
             FROM ville';
 ?>
-    <table class="table table-striped display" style="width:100%" id="villes">
+    <table class="table table-striped display table-hover" style="width:100%" id="villes">
         <thead>
             <tr>
                 <th>Nom</th>
@@ -58,6 +58,7 @@ try {
                 $('#villes').DataTable();
             });
         </script>
+        <script src="js/jquery.js"></script>
         <script>
             $(document).ready(function($) {
                 $(".clickable-row").click(function() {
