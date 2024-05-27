@@ -1,8 +1,8 @@
 <?php
-require_once('include/connexion.php');
+require_once('../include\connexion.php');
 $id = (isset($_GET['id']))?$_GET['id']:0;
 if($id == 0) {
- header("Location:$url/listefournisseur.php");
+ header("Location:$url/public/suppliers.php");
  die();
 }
 try {
@@ -27,6 +27,14 @@ civilite from fournisseur where code = ?');
  <body>
  <div class="container">
  <h1>fournisseur <?php echo $fournisseur['nom']; ?></h1>
+    <ul>
+        <li>Nom: <?php echo htmlspecialchars($fournisseur['nom']); ?></li>
+        <li>Adresse 1: <?php echo htmlspecialchars($fournisseur['adresse1']); ?></li>
+        <li>Adresse 2: <?php echo htmlspecialchars($fournisseur['adresse2']); ?></li>
+        <li>Ville: <?php echo htmlspecialchars($fournisseur['ville']); ?></li>
+        <li>Contact: <?php echo htmlspecialchars($fournisseur['contact']); ?></li>
+        <li>Civilité: <?php echo htmlspecialchars($fournisseur['civilite']); ?></li>
+    </ul>
  </div>
  </body>
 </html>

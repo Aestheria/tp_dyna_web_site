@@ -6,8 +6,7 @@ if($id == 0) {
  die();
 }
 try {
- $requete = $bdd->prepare('select nom, adresse1, adresse2, ville, contact,
-civilite from fournisseur where code = ?');
+ $requete = $bdd->prepare('select nom, codepostal, pays from ville where code = ?');
  $requete->execute(array($id));
  $fournisseur = $requete->fetch();
 } catch (PDOException $e) {

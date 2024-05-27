@@ -43,7 +43,7 @@ $requete = 'SELECT fournisseur.nom AS fournisseur_nom
 <?php
 try {
     foreach($bdd->query($requete) as $ligne) {
-        echo '<tr class="clickable-row" data-href="fournisseur.php?id='.$ligne['fournisseur_code'].'">';
+        echo '<tr class="clickable-row" data-href="supplier.php?id='.$ligne['fournisseur_code'].'">';
         echo '<td>' . $ligne['fournisseur_nom'] . '</td>';
         echo '<td>' . $ligne['civilite_libelle'] . '</td>';
         echo '<td>' . $ligne['fournisseur_contact'] . '</td>';
