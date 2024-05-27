@@ -19,6 +19,7 @@ include("../include/connexion.php");
 $requete = 'SELECT nom
             , codepostal
             , pays
+            , code
             FROM ville';
 ?>
     <table class="table table-striped display" style="width:100%" id="villes">
@@ -33,11 +34,11 @@ $requete = 'SELECT nom
 <?php
 try {
     foreach($bdd->query($requete) as $ligne) {
-        echo '<tr class="clickable-row" data-href="villes.php?id='.$ligne['fournisseur_code'].'">';
+        echo '<tr class="clickable-row" data-href="villes.php?id='.$ligne['code'].'">';
         echo '<td>' . $ligne['nom'] . '</td>';
         echo '<td>' . $ligne['codepostal'] . '</td>';
         echo '<td>' . $ligne['pays'] . '</td>';
-        echo '<td>' . $ligne['code'] . '</td>';
+        // echo '<td>' . $ligne['code'] . '</td>';
         echo "</tr>\n";
     }
 } catch (PDOException $e) {
