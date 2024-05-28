@@ -1,6 +1,6 @@
 <?php
 require_once('../include\connexion.php');
-require_once('include/fonction.php');
+require_once('../include/fonction.php');
 
 // Récupération de l'ID du supplier depuis les paramètres de l'URL, avec une valeur par défaut de 0
 $id = (isset($_GET['id']))?$_GET['id']:0;
@@ -42,33 +42,34 @@ $requete->execute(array($id));
 <!-- Affichage des informations sur la page -->
  <h1>fournisseur <?php echo $fournisseur['nom']; ?></h1>
  <form>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="nom">Nom</label>
                 <input type="text" class="form-control" id="nom" name="nom" value="<?php echo htmlspecialchars($fournisseur['nom']); ?>" readonly>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="adresse1">Adresse 1</label>
                 <input type="text" class="form-control" id="adresse1" name="adresse1" value="<?php echo htmlspecialchars($fournisseur['adresse1']); ?>" readonly>
             </div>
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="adresse2">Adresse 2</label>
                 <input type="text" class="form-control" id="adresse2" name="adresse2" value="<?php echo htmlspecialchars($fournisseur['adresse2']); ?>" readonly>
             </div>
-                <div class="form-group row">
+                <div class="mb-3">
                 <label class="col-form-label col-sm-2" for="ville">Ville</label>
-                <div class="col-sm-10">
-                <?php echo selectVille('ville'); ?>
+                <div class="col-sm-13">
+                <?php echo selectVille('ville', $fournisseur['ville']); ?>
                 </div>
             </div>
 
-            <div class="form-group">
+            <div class="mb-3">
                 <label for="contact">Contact</label>
                 <input type="text" class="form-control" id="contact" name="contact" value="<?php echo htmlspecialchars($fournisseur['contact']); ?>" readonly>
             </div>
-            <div class="form-group">
-                <label for="civilite">Civilité</label>
-                <input type="text" class="form-control" id="civilite" name="civilite" value="<?php echo htmlspecialchars($fournisseur['civilite']); ?>" readonly>
-            </div>
+            <div class="mb-3">
+                <label class="col-form-label col-sm-2" for="civilite">Civilité</label>
+                <div class="col-sm-13">
+                <?php echo selectCivilite('civilite', $fournisseur['civilite']); ?>
+                </div>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

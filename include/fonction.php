@@ -4,19 +4,38 @@
  * @param $id id du select
  * @return code HTML à afficher
  */
-function selectVille($id) {
- global $bdd;
- $retour = "<select class=\"form-control\" id=\"$id\" name=\"$id\">\n";
- try {
- $requete = 'select code, nom from ville';
- foreach($bdd->query($requete) as $ligne) {
- $retour .= '<option value='.$ligne['code'].'>'.
-$ligne['nom'].'</option>'."\n";
+function selectVille($id, $selectedId = null) {
+    global $bdd;
+    $retour = "<select class=\"form-control\" id=\"$id\" name=\"$id\">\n";
+    try {
+    $requete = 'select code, nom from ville';
+    foreach($bdd->query($requete) as $ligne) {
+    $selected = ($ligne['code'] == $selectedId) ? ' selected="selected"' : '';
+    $retour .= '<option value="'.htmlspecialchars($ligne['code']).'"'.$selected.'>'.
+    htmlspecialchars($ligne['nom']).'</option>'."\n";
  }
- } catch (PDOException $e) {
- print "Erreur !: " . $e->getMessage() . "<br/>";
- die();
- }
- $retour .= "</select>";
- return $retour;
+} catch (PDOException $e) {
+print "Erreur !: " . $e->getMessage() . "<br/>";
+die();
+}
+$retour .= "</select>";
+return $retour;
+}
+
+function selectCivilite($id, $selectedId = null) {
+    global $bdd;
+    $retour = "<select class=\"form-control\" id=\"$id\" name=\"$id\">\n";
+    try {
+    $requete = 'select code, libelle from civilite';
+    foreach($bdd->query($requete) as $ligne) {
+    $selected = ($ligne['code'] == $selectedId) ? ' selected="selected"' : '';
+    $retour .= '<option value="'.htmlspecialchars($ligne['code']).'"'.$selected.'>'.
+    htmlspecialchars($ligne['libelle']).'</option>'."\n";
+}
+} catch (PDOException $e) {
+print "Erreur !: " . $e->getMessage() . "<br/>";
+die();
+}
+$retour .= "</select>";
+return $retour;
 }
