@@ -1,6 +1,5 @@
 <?php
-require_once('../include\connexion.php');
-require_once('../include/fonction.php');
+require_once('../include/connexion.php');
 
 // Récupération de l'ID du supplier depuis les paramètres de l'URL, avec une valeur par défaut de 0
 $id = (isset($_GET['id']))?$_GET['id']:0;
@@ -18,7 +17,7 @@ try {
 $requete->execute(array($id));
 
 // Récupère les résultats de la requête sous forme de tableau
- $fournisseur = $requete->fetch();
+ $ville = $requete->fetch();
 
 // Affiche un message d'erreur et termine l'exécution du script en cas d'exception PDO
 } catch (PDOException $e) {
@@ -39,7 +38,7 @@ $requete->execute(array($id));
  <body>
  <div class="container">
 <!-- Affichage des informations sur la page -->
- <h1>fournisseur <?php echo $ville['nom']; ?></h1>
+ <h1>Ville <?php echo $ville['nom']; ?></h1>
  <form>
             <div class="mb-3">
                 <label for="nom">Nom</label>

@@ -1,5 +1,5 @@
 <?php
-require_once('../include\connexion.php');
+require_once('../include/connexion.php');
 require_once('../include/fonction.php');
 
 // Récupération de l'ID du supplier depuis les paramètres de l'URL, avec une valeur par défaut de 0
@@ -40,7 +40,7 @@ $requete->execute(array($id));
  <body>
  <div class="container">
 <!-- Affichage des informations sur la page -->
- <h1>fournisseur <?php echo $fournisseur['nom']; ?></h1>
+ <h1>Fournisseur <?php echo $fournisseur['nom']; ?></h1>
  <form>
             <div class="mb-3">
                 <label for="nom">Nom</label>
@@ -55,7 +55,7 @@ $requete->execute(array($id));
                 <input type="text" class="form-control" id="adresse2" name="adresse2" value="<?php echo htmlspecialchars($fournisseur['adresse2']); ?>" readonly>
             </div>
                 <div class="mb-3">
-                <label class="col-form-label col-sm-2" for="ville">Ville</label>
+                <label class="col-form-label" for="ville">Ville</label>
                 <div class="col-sm-13">
                 <?php echo selectVille('ville', $fournisseur['ville']); ?>
                 </div>
@@ -66,7 +66,7 @@ $requete->execute(array($id));
                 <input type="text" class="form-control" id="contact" name="contact" value="<?php echo htmlspecialchars($fournisseur['contact']); ?>" readonly>
             </div>
             <div class="mb-3">
-                <label class="col-form-label col-sm-2" for="civilite">Civilité</label>
+                <label class="col-form-label" for="civilite">Civilité</label>
                 <div class="col-sm-13">
                 <?php echo selectCivilite('civilite', $fournisseur['civilite']); ?>
                 </div>
