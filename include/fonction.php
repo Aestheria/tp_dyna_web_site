@@ -39,3 +39,9 @@ die();
 $retour .= "</select>";
 return $retour;
 }
+
+//Fonction menu actif
+function menuActif($menu) {
+    $ecran = basename($_SERVER['SCRIPT_FILENAME'], ".php");
+    return ($ecran === $menu) ? 'active' : '';
+}

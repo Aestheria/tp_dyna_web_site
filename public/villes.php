@@ -7,21 +7,25 @@
         <link href="../css/style.css" rel="stylesheet">
     </head>
     <body>
+    <?php
+        include("../include/menu.php");
+    ?>
         <div class="container">
             <h1>Les villes</h1>
-<?php
-include("../include/connexion.php");
+    <?php
+    include("../include/connexion.php");
+    require_once('../include/fonction.php');
 
-/**
- * Page qui affiche la liste de toutes les villes
- */
+    /**
+     * Page qui affiche la liste de toutes les villes
+     */
 
-$requete = 'SELECT nom
-            , codepostal
-            , pays
-            , code
-            FROM ville';
-?>
+    $requete = 'SELECT nom
+                , codepostal
+                , pays
+                , code
+                FROM ville';
+    ?>
     <table class="table table-striped display table-hover" style="width:100%" id="villes">
         <thead>
             <tr>

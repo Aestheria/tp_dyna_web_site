@@ -7,11 +7,14 @@
         <link href="../css/style.css" rel="stylesheet">
     </head>
     <body>
+        <?php
+            include('../include/menu.php');
+        ?>
         <div class="container">
             <h1>Les fournisseurs</h1>
 <?php
 include("../include/connexion.php");
-
+require_once('../include/fonction.php');
 /**
  * Page qui affiche la liste de tous les fournisseurs
  */

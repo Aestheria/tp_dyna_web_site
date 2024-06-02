@@ -1,4 +1,31 @@
+/*Curseur main*/
 .clickable-row {
     cursor: pointer;
 }
-/*Curseur main*/
+
+/* Style de la nav */
+.nav {
+    height: 45px;
+}
+
+/* Style des items du menu */
+.nav-item {
+    margin-right: 15px; /* Espace entre les items */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style des liens */
+.nav-link {
+    display: flex; /* Utiliser flexbox pour aligner les items */
+    align-items: center; /* Centrer verticalement les items */
+    padding: 0; /* Enlever le padding des liens */
+}
+
+/* Style du logo */
+#logo {
+    max-height: 40px; /* Limiter la hauteur du logo */
+    width: auto;
+    margin: auto;
+}
